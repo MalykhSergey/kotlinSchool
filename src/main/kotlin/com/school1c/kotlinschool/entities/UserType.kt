@@ -1,4 +1,4 @@
-package com.school1c.kotlinschool
+package com.school1c.kotlinschool.entities
 
 enum class UserType {
     Admin,
