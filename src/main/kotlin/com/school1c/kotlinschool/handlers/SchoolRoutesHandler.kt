@@ -1,7 +1,7 @@
 package com.school1c.kotlinschool.handlers
 
 import com.school1c.kotlinschool.entities.School
-import com.school1c.kotlinschool.entities.UserToken
+import com.school1c.kotlinschool.entities.User
 import com.school1c.kotlinschool.getSchoolNameFromParameters
 import com.school1c.kotlinschool.repositories.SchoolRepository
 import io.ktor.application.call
@@ -14,7 +14,7 @@ import org.springframework.dao.DataIntegrityViolationException
 
 fun Route.addSchool(schoolRepository: SchoolRepository) {
     post("/addSchool") {
-        val user = call.authentication.principal<UserToken>()
+        val user = call.authentication.principal<User>()
         val name = getSchoolNameFromParameters(call.request.queryParameters)
         if (name != null) {
             try {

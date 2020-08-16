@@ -18,7 +18,7 @@ class SchoolServiceImpl_Default (@Autowired val schoolRepository: SchoolReposito
         TODO("Not yet implemented")
     }
 
-    override suspend fun <T : User> addUserForSchool(user: T, userRepository: UserRepository<T>) {
+    override suspend fun addUserForSchool(user: User, userRepository: UserRepository) {
         TODO("Not yet implemented")
     }
 }

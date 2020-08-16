@@ -9,8 +9,11 @@ fun getUserNameParametersFromParameters(parameters: Parameters): String? {
     return parameters["UserName"]
 }
 fun getSchoolClassNameFromParameters(parameters: Parameters): String? {
-    return parameters["UserName"]
+    return parameters["SchoolClass"]
 }
 fun getUserTypeFromParameters(parameters: Parameters): String? {
     return parameters["UserType"]
+}
+fun getPasswordFromParameter(parameters: Parameters): String? {
+    return parameters["Password"]
 }

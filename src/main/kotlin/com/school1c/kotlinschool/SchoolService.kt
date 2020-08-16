@@ -8,5 +8,5 @@ import com.school1c.kotlinschool.repositories.UserRepository
 interface SchoolService {
     suspend fun addSchool(school: School)
     suspend fun addSchoolClassForSchool(school: School, schoolClass: SchoolClass)
-    suspend fun <T: User> addUserForSchool(user:T, userRepository: UserRepository<T>)
+    suspend fun addUserForSchool(user: User, userRepository: UserRepository)
 }

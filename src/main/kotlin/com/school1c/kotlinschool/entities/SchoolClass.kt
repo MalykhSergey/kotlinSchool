@@ -1,8 +1,6 @@
 package com.school1c.kotlinschool.entities
 
 import com.school1c.kotlinschool.repositories.SchoolRepository
-import com.school1c.kotlinschool.repositories.UserRepository
-import kotlinx.coroutines.flow.Flow
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 

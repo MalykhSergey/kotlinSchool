@@ -1,7 +1,9 @@
-create table if not exists users_tokens(
+create table if not exists users(
     id serial primary key,
     user_name varchar(30),
+    nick_name varchar(20),
     password varchar(30),
+    school bigint,
     user_type int,
-    user_id bigint not null  unique
+    foreign key (school) references schools(id)
 )

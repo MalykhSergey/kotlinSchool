@@ -22,10 +22,19 @@ fun configuration(application: Application, kotlinSchoolApplication: KotlinSchoo
             validate {
                 val userToken = kotlinSchoolApplication.findUserToken(it)
                 if (userToken != null) {
-                    if (userToken.userType == UserType.Admin)
+                    if (userToken.userType == UserType.Admin.ordinal)
                         return@validate userToken
                 }
                 return@validate null
+            }
+        }
+        basic ("AdminOrOperator"){
+            validate {
+                val userToken = kotlinSchoolApplication.findUserToken(it)
+                if (userToken != null) {
+                    if (userToken.userType == UserType.Admin.ordinal || userToken.userType == UserType.Operator.ordinal) return@validate userToken
+                    else null
+                } else null
             }
         }
     }
