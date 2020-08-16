@@ -1,6 +1,8 @@
 package com.school1c.kotlinschool.handlers
 
 import com.school1c.kotlinschool.entities.*
+import com.school1c.kotlinschool.getSchoolClassNameFromParameters
+import com.school1c.kotlinschool.getSchoolNameFromParameters
 import com.school1c.kotlinschool.repositories.SchoolClassRepository
 import com.school1c.kotlinschool.repositories.SchoolRepository
 import com.school1c.kotlinschool.repositories.UserRepository
@@ -16,8 +18,8 @@ fun Route.addSchoolClass(schoolClassRepository: SchoolClassRepository, schoolRep
         val user= call.authentication.principal<UserToken>()
         if (user != null) {
             val queryParameters = call.request.queryParameters
-            val schoolClassName = queryParameters["SchoolClassName"]
-            val schoolName = queryParameters["SchoolName"]
+            val schoolClassName = getSchoolClassNameFromParameters(queryParameters)
+            val schoolName = getSchoolNameFromParameters(queryParameters)
             when(user.userType){
                 UserType.Admin -> {
                     if(schoolClassName !=null) {
