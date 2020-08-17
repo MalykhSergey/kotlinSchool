@@ -26,7 +26,7 @@ class KotlinSchoolApplication(@Autowired userRepos: UserRepository, @Autowired s
                 addSchool(schoolRepository)
             }
             authenticate ("AdminOrOperator"){
-                addUser(schoolRepository = schoolRepository, userService = userService)
+                addUser(schoolRepository = schoolRepository, userService = userService, schoolClassRepository = schoolClassRepository)
             }
             authenticate {
                 addSchoolClass(schoolClassRepository = schoolClassRepository, schoolRepository = schoolRepository, userRepository = userRepository)
@@ -34,7 +34,7 @@ class KotlinSchoolApplication(@Autowired userRepos: UserRepository, @Autowired s
         }
     }
     suspend fun findUserToken(it: UserPasswordCredential) =
-            userRepository.findUserByUserNameAndPassword(it.name, it.password)
+            userRepository.findUserByNickNameAndPassword(it.name, it.password)
 
     init {
         embeddedServer.start()

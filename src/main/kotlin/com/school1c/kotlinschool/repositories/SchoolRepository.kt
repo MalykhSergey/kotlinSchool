@@ -6,7 +6,7 @@ import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface SchoolRepository:CoroutineCrudRepository<School, Long> {
+interface SchoolRepository:CoroutineCrudRepository<School, Int> {
     @Query("select id from schools where name = $1")
-    suspend fun findSchoolIdByName(name:String):Long?
+    suspend fun findSchoolIdByName(name:String):Int?
 }

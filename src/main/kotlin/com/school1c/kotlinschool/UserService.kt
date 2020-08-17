@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(@Autowired val userRepository: UserRepository) {
-    suspend fun createAndSaveUser(userName: String, schoolId: Long, password: String, userType: String): HttpStatusCode {
+    suspend fun createAndSaveUser(userName: String, nickName:String, schoolId: Int, schoolClass:Int?, password: String, userType: String): HttpStatusCode {
         return try {
-            val user = User(userName = userName, password = password, school = schoolId, userType = UserType.valueOf(userType).ordinal)
+            val user = User(userName = userName, nickName = nickName,password = password, school = schoolId, schoolClass = schoolClass, userType = UserType.valueOf(userType).ordinal)
             userRepository.save(user)
             HttpStatusCode.Created
         } catch (exception: DataIntegrityViolationException) {

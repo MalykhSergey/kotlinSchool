@@ -14,7 +14,9 @@ class User(
         val nickName: String,
         @Column(value = "password")
         val password: String,
-        val school:Long?,
+        val school:Int? = null,
+        @Column(value = "school_class")
+        val schoolClass: Int?=null,
         @Column(value = "user_type")
         val userType: Int):Principal {
 }

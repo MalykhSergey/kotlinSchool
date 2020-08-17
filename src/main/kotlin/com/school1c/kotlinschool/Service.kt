@@ -2,18 +2,9 @@ package com.school1c.kotlinschool
 
 import io.ktor.http.Parameters
 
-fun getSchoolNameFromParameters(parameters:Parameters): String? {
-    return parameters["SchoolName"]
-}
-fun getUserNameParametersFromParameters(parameters: Parameters): String? {
-    return parameters["UserName"]
-}
-fun getSchoolClassNameFromParameters(parameters: Parameters): String? {
-    return parameters["SchoolClass"]
-}
-fun getUserTypeFromParameters(parameters: Parameters): String? {
-    return parameters["UserType"]
-}
-fun getPasswordFromParameter(parameters: Parameters): String? {
-    return parameters["Password"]
-}
+fun getSchoolNameFromParameters(parameters:Parameters): String? = parameters["SchoolName"]
+fun getUserNameParametersFromParameters(parameters: Parameters): String? = parameters["UserName"]
+fun getSchoolClassNameFromParameters(parameters: Parameters): String? = parameters["SchoolClass"]
+fun getUserTypeFromParameters(parameters: Parameters): String? = parameters["UserType"]
+fun getPasswordFromParameter(parameters: Parameters): String? = parameters["Password"]
+fun getNickNameFromParameters(parameters: Parameters):String? = parameters["NickName"]

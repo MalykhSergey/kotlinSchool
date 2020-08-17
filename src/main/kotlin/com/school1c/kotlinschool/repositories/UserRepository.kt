@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface UserRepository :CoroutineCrudRepository<User, Long?>{
-    suspend fun findUserByUserNameAndPassword(userName:String, password:String): User?
+    suspend fun findUserByNickNameAndPassword(userName:String, password:String): User?
     @Query("select school from users where id = $1")
-    suspend fun findSchoolIdByUserId(id:Long):Long?
+    suspend fun findSchoolIdByUserId(id:Long):Int?
 }
