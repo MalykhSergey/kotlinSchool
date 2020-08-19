@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
 @Table(value = "school_classes")
-data class SchoolClass(@Id val id:Int? = null, val name:String, private val school: Int) {
+data class SchoolClass(@Id var id:Int? = null, val name:String, private val school: Int) {
 //    suspend fun<T:User> getUsers(userRepository: UserRepository<T>): Flow<T> {
 //        return userRepository.findAllBySchoolClassId(id!!)
 //    }

@@ -13,7 +13,7 @@ import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.post
 
-fun Route.addUser(userService: UserService, schoolRepository: SchoolRepository, schoolClassRepository: SchoolClassRepository) {
+fun Route.addUserHandler(userService: UserService, schoolRepository: SchoolRepository, schoolClassRepository: SchoolClassRepository) {
     post("/createUser") {
         val userToken = call.authentication.principal<User>()
         if (userToken != null) {

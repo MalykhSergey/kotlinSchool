@@ -8,3 +8,5 @@ fun getSchoolClassNameFromParameters(parameters: Parameters): String? = paramete
 fun getUserTypeFromParameters(parameters: Parameters): String? = parameters["UserType"]
 fun getPasswordFromParameter(parameters: Parameters): String? = parameters["Password"]
 fun getNickNameFromParameters(parameters: Parameters):String? = parameters["NickName"]
+fun getTaskTitleFromParameters(parameters: Parameters):String? = parameters["TaskTitle"]
+fun getTaskBodyFromParameters(parameters: Parameters):String? = parameters["TaskBody"]

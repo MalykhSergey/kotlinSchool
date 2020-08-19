@@ -13,7 +13,7 @@ import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.post
 
-fun Route.addSchoolClass(schoolClassRepository: SchoolClassRepository, schoolRepository: SchoolRepository, userRepository:UserRepository){
+fun Route.addSchoolClassHandler(schoolClassRepository: SchoolClassRepository, schoolRepository: SchoolRepository, userRepository:UserRepository){
     post("/addSchoolClass") {
         val user= call.authentication.principal<User>()
         if (user != null) {
@@ -22,10 +22,13 @@ fun Route.addSchoolClass(schoolClassRepository: SchoolClassRepository, schoolRep
             val schoolName = getSchoolNameFromParameters(queryParameters)
             when(user.userType){
                 UserType.Admin.ordinal -> {
-                    if(schoolClassName !=null) {
-                        schoolClassRepository.save(SchoolClass(name = schoolClassName, school = schoolRepository.findSchoolIdByName(schoolName!!)!!))
-                        call.respond(HttpStatusCode.Created)
-                        return@post
+                    if(schoolClassName !=null && schoolName !=null) {
+                        val school = schoolRepository.findSchoolIdByName(schoolName)
+                        if (school!=null){
+                            schoolClassRepository.save(SchoolClass(name = schoolClassName, school = school))
+                            call.respond(HttpStatusCode.Created)
+                            return@post
+                        }
                     }
                 }
                 UserType.Operator.ordinal -> {
