@@ -14,4 +14,6 @@ interface SchoolClassRepository:CoroutineCrudRepository<SchoolClass,Int> {
     suspend fun findIdByNameAndSchool(schoolClass:String?, school:Int?):Int?
     @Query("select id from school_classes where name = $1")
     suspend fun findSchoolClassIdByName(name:String):Int?
+    @Query("select teacher_id from school_classes_teachers where school_class_id = $1")
+    suspend fun findTeachersBySchoolClass(schoolClass: Int):Flow<Long>
 }

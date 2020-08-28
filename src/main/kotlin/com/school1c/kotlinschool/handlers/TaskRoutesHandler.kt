@@ -1,6 +1,6 @@
 package com.school1c.kotlinschool.handlers
 
-import com.school1c.kotlinschool.TaskService
+import com.school1c.kotlinschool.services.TaskService
 import com.school1c.kotlinschool.entities.User
 import com.school1c.kotlinschool.entities.UserType
 import com.school1c.kotlinschool.getSchoolClassNameFromParameters
@@ -13,9 +13,8 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.post
-import org.springframework.beans.factory.annotation.Autowired
 
-fun Route.addTaskHandler(taskService: TaskService, schoolClassRepository: SchoolClassRepository){
+fun Route.taskRoutesHandler(taskService: TaskService, schoolClassRepository: SchoolClassRepository){
     post ("/addTask"){
         val teacher = call.authentication.principal<User>()
         val queryParameters = call.request.queryParameters

@@ -1,4 +1,4 @@
-package com.school1c.kotlinschool
+package com.school1c.kotlinschool.services
 
 import com.school1c.kotlinschool.entities.School
 import com.school1c.kotlinschool.entities.SchoolClass

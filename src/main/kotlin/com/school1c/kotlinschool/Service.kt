@@ -10,3 +10,4 @@ fun getPasswordFromParameter(parameters: Parameters): String? = parameters["Pass
 fun getNickNameFromParameters(parameters: Parameters):String? = parameters["NickName"]
 fun getTaskTitleFromParameters(parameters: Parameters):String? = parameters["TaskTitle"]
 fun getTaskBodyFromParameters(parameters: Parameters):String? = parameters["TaskBody"]
+fun getAnswerBodyFromParameters(parameters: Parameters):String? = parameters["AnswerBody"]

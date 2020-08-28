@@ -5,6 +5,7 @@ import com.school1c.kotlinschool.entities.User
 import com.school1c.kotlinschool.entities.UserType
 import com.school1c.kotlinschool.repositories.SchoolClassRepository
 import com.school1c.kotlinschool.repositories.SchoolRepository
+import com.school1c.kotlinschool.services.UserService
 import io.ktor.application.call
 import io.ktor.auth.authentication
 import io.ktor.http.HttpStatusCode
@@ -13,7 +14,7 @@ import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.post
 
-fun Route.addUserHandler(userService: UserService, schoolRepository: SchoolRepository, schoolClassRepository: SchoolClassRepository) {
+fun Route.userRoutesHandler(userService: UserService, schoolRepository: SchoolRepository, schoolClassRepository: SchoolClassRepository) {
     post("/createUser") {
         val userToken = call.authentication.principal<User>()
         if (userToken != null) {

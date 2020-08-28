@@ -13,7 +13,7 @@ import io.ktor.response.respond
 import io.ktor.routing.Route
 import io.ktor.routing.post
 
-fun Route.addSchoolClassHandler(schoolClassRepository: SchoolClassRepository, schoolRepository: SchoolRepository, userRepository:UserRepository){
+fun Route.schoolClassHandler(schoolClassRepository: SchoolClassRepository, schoolRepository: SchoolRepository, userRepository:UserRepository){
     post("/addSchoolClass") {
         val user= call.authentication.principal<User>()
         if (user != null) {

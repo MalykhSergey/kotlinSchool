@@ -12,7 +12,7 @@ import io.ktor.routing.Route
 import io.ktor.routing.post
 import org.springframework.dao.DataIntegrityViolationException
 
-fun Route.addSchoolHandler(schoolRepository: SchoolRepository) {
+fun Route.schoolRoutesHandler(schoolRepository: SchoolRepository) {
     post("/addSchool") {
         val user = call.authentication.principal<User>()
         val name = getSchoolNameFromParameters(call.request.queryParameters)
